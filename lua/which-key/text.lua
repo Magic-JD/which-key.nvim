@@ -64,8 +64,8 @@ function Text:highlight(row, from, to, group)
   local line = self.lines[row]
   local before = vim.fn.strcharpart(line, 0, from)
   local str = vim.fn.strcharpart(line, 0, to)
-  from = vim.fn.strlen(before)
-  to = vim.fn.strlen(str)
+  from = vim.fn.strwidth(before)
+  to = vim.fn.strwidth(str)
   table.insert(self.hl, { line = row - 1, from = from, to = to, group = group })
 end
 
